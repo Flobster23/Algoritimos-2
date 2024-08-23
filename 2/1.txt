@@ -1,0 +1,1 @@
+Na linha 21 vai imprimir o que acabou de ser digitado pelo getline, na linha 23 ele imprime o nome depois de já ter passado pela função iniciais, se tivesse cout << nome << endl o compilador informaria um erro porque a variável nome só existe no escopo da função iniciais.
