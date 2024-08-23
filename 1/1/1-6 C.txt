@@ -1,0 +1,6 @@
+1. Algo que possui um papel pra desempenhar seguindo instruções, podendo ter parâmetros ou não.
+2. O argumento ou parâmetro é um valor que varia, a função necessita da apresentação do valor dessa variável para funcionar.
+3. Funções que retornam inteiros, reais, booleanos.
+4. A função não tem um retorno.
+5. int, float, bool, etc.
+6. É o resultado da função, também podendo ser inteiro, real, booleanos, entre outros.
