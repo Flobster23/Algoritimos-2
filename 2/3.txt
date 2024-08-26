@@ -1,0 +1,3 @@
+int rand (void): Função que retorna um inteiro e não possui parâmetro.
+void srand (unsigned int seed): Função sem retorno que possui um parâmetro.
+int atoi (const char * str): Função que retorna um inteiro e possui um parâmetro const char.
