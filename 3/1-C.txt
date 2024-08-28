@@ -1,0 +1,12 @@
+1. linha 4: 5, linha 5: endereço de memória da variável i.
+
+2. linha 4 a 6: Vai imprimir o endereço de memória das três variáveis.
+
+3. linha 6: 55, linha 7: endereço de memória da variável num, linha 8: 55.
+
+B)
+1. e
+2. c
+3. a d declara uma variável do tipo inteiro.
+
+C) 5 
