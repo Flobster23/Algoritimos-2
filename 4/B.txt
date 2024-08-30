@@ -1,0 +1,1 @@
+Não, o correto seria ler o valor da variável associada ao ponteiro e não o ponteiro em si.

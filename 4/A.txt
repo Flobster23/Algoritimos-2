@@ -1,0 +1,28 @@
+1. 	Valores originais de x, y e z: 1 2 3
+	Valores finais de x, y e z dentro da funcao: 101 102 103
+	Valores finais em main de a, b e c: 1 2 3
+
+2. 	Valores originais na funcao - 1o, 2o, e 3o: 1 2 3
+	Valores finais na funcao - 1o, 2o e 3o: 101 102 103
+	Valores finais em main 1o, 2o e 3o: 101 102 103
+
+3. 	Valor de a: 0 - valor de b: 5
+	Valor de a: 5 - valor de b: 5
+
+4. 	Antes de chamar por_valor: x = 2, y = 4, z = 6
+	Depois de chamar por_valor: x = 2, y = 4, z = 6
+	Antes de chamar por_ref: x = 2, y = 4, z = 6
+	Depois de chamar por_ref: x = 0, y = 0, z = 0
+
+5.	num --> 11
+	i --> 11
+
+6.	a --> 8
+	b --> 7
+	x --> 8
+	y --> 2
+
+7. se a for maior que b será escrito na tela a soma de a com b.
+
+
+	
