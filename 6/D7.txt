@@ -1,0 +1,1 @@
+O numero digitado será sempre de 4 dígitos, a partir disso, ele verifica se a soma dos dois primeiros e os dois últimos dígitos, quando elevado ao quadrado, resulta no número original.

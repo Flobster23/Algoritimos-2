@@ -1,0 +1,1 @@
+O resultado será a soma dos elementos múltiplos de a que estão entre b e c.
