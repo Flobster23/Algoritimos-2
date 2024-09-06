@@ -4,19 +4,43 @@
 
 using namespace std;
 
-void maior(vector <int> a) {
+void extremos(vector <int> a) {
     vector<int>::iterator i;
     for(i = a.begin(); i != a.end(); i++){
         sort(a.begin(), a.end(), greater<int>());
     }
-    cout << *(a.end() - 1) << endl;
+    cout << "maior número do vetor: " << *(a.begin()) << endl;
+    cout << endl;
+    cout << "menor número do vetor: " << *(a.end() - 1) << endl;
+}
+
+void media(vector <int> a){
+    vector<int>::iterator i;
+    float soma = 0;
+    int d = 0;
+    for(i = a.begin(); i != a.end(); i++){
+        soma += *i;
+        d++;
+    }
+    cout << "media dos elementos do vetor: " << soma / d << endl;
+}
+
+void positivos(vector <int> a){
+    int soma = 0;
+    vector<int>::iterator i;
+    for(i = a.begin(); i != a.end(); i++){
+        if(*i >= 0){
+            soma++;
+        }
+    }
+    cout << "N° de elementos positivos no vetor: " << soma << endl;
 }
 
 int main(){
     vector <int> v;
-    vector<int>::iterator i;
     int N;
     cin >> N;
+    cout << endl;
     
     for(int j = 0; j < N; j++){
         int valor;
@@ -24,7 +48,17 @@ int main(){
         v.push_back(valor);
     }
     
-    maior(v);
+    cout << endl;
+    
+    extremos(v);
+    
+    cout << endl;
+    
+    media(v);
+    
+    cout << endl;
+    
+    positivos(v);
     
     return 0;
 }
