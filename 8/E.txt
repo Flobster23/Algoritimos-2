@@ -1,0 +1,5 @@
+Linha 6: endereço de memória de pa e pb
+Linha 7: 9
+
+Ele esta imprimindo a distância na memória das variáveis apontadas pelos ponteiros pa e pb.
+

@@ -1,0 +1,2 @@
+.PC1 vai apontar para variável x, ou seja, vai apontar pro endereço 1000;
+.PC2 vai apontar pro endereço da

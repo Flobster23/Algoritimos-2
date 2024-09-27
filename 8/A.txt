@@ -1,0 +1,3 @@
+Letra C
+
+A partir do endereço do primeiro elemento do vetor, pode-se acessar todos os outros com a aritmética de ponteiros.
