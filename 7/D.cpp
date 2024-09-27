@@ -14,20 +14,17 @@ void sortear(carta cartasJ[4]){
         int j = (rand() % 13) + 1;
         if(j == 1){
             cartasJ[i].num = 'A';
-        }
-        if(j == 11){
+        }else if(j == 11){
             cartasJ[i].num = 'J';
-        }
-        if(j == 12){
+        }else if(j == 12){
             cartasJ[i].num = 'Q';
-        }
-        if(j == 13){
+        }else if(j == 13){
             cartasJ[i].num = 'K';
         }else{
             cartasJ[i].num = j + 48;
         }
-        cout << " " << j;
-    }
+    }        
+    
     for(int i = 0; i < 4; i++){
         int j = rand() % 4;
         if(j == 0){
