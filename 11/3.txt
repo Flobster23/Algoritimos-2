@@ -1,0 +1,1 @@
+o primeiro laço que realiza a leitura de todos os elementos do vetor possui uma complexidade linear O(n), porém, logo em seguida existe três laços para alinhados, o que indica uma complexidade O(n^3), portanto, a complexidade final do algoritmo vai ser O(n^3).

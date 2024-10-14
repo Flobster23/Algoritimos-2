@@ -1,0 +1,9 @@
+a) Quanto menor tempo o computador usa para executar um programa, maior será sua eficiência de tempo.
+
+b) Complexidade Algorítmica, Tamanho da Entrada, Tipo de Dados, Hardware, Número de operações executadas entre outras.
+
+c) Tamanho da entrada e número de operações executadas.
+
+d) O tipo do dado não é relevante quando pensamos em um longo tempo de execução, o hardware varia para cada computador, então não é interessante de ser analisado.
+
+e) Notação Big O.

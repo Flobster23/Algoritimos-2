@@ -1,0 +1,1 @@
+A notação Big O analisa o máximo de recursos que o algoritmo vai utilizar durante o processamento, utilizando funções matemáticas de tempo(t) em função das entradas(n), tal que T(n) = O(n). As complexidades podem ser do tipo: O(1), O(log n), O(n), O(n^2).
