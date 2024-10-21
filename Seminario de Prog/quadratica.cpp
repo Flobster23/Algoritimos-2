@@ -14,7 +14,7 @@ int main(){
         v[i] = new(nothrow) int[o];
     }
 
-    srand(static_cast<unsigned int>(time(0)));
+    srand((time(0)));
     for (int i = 0; i < n; i++){
         for (int j = 0; j < o; j++){
             v[i][j] = rand() % (0 - 10);
