@@ -1,0 +1,11 @@
+Problema 1: O(1) (constante)
+
+Problema 2: O(n) (linear)
+
+Problema 3: O(1) (constante)
+
+Problema 4: O(n^2) (quadrática)
+
+Problema 5: O(n) (linear)
+
+Problema 6: O(n) (linear)
