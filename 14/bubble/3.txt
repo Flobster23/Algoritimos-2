@@ -1,0 +1,1 @@
+No selection ele acha o menor ou maior toda iteração e troca uma vez por iteração, no bubble ele faz um numero de comparações fixo mas pode trocar varias vezes.

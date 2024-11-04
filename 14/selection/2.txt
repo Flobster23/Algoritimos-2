@@ -1,0 +1,1 @@
+porque ele vai comparar com uma posição do vetor que não existe (n+1)

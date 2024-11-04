@@ -1,0 +1,1 @@
+5 trocas e 10 comparações.

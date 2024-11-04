@@ -1,0 +1,1 @@
+Não vai alterar a ordem, a ordem dos dois elementos será mantida porque o primeiro será o menor em uma iteração e o segundo na outra.
