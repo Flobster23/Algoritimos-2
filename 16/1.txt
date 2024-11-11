@@ -1,0 +1,7 @@
+Selection sort: É bom para vetores pequenos e quando não necessita muitas trocas, é ruim quando o vetor é muito grande e precisa fazer comparações excessivas.
+
+Bubble sort: É bom quando o vetor já está quase ordenado, é ruim quando os vetores são grandes e desordenados.
+
+Insertion sort: O melhor caso é quando o vetor já está ordenado, é ruim quando precisa de muitos deslocamentos.
+
+Merge sort: É muito parecido em todos os casos, mas ele é melhor em vetores maiores e que precisam de varias trocas.

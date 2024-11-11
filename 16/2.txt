@@ -1,0 +1,7 @@
+Selection sort: Vai ter complexidade O(n^2) em todos os casos, pois sempre vai percorrer os dois laços de repetição.
+
+Bubble sort: Vai ter complexidade O(n) no melhor caso, pois vai percorrer o laço de repetição apenas uma vez e não realizar nenhuma troca, já no caso médio e pior, a complexidade será O(n^2).
+
+Insertion sort: Vai ter complexidade O(n) no melhor caso, pois vai percorrer o laço de repetição apenas uma vez e não realizar nenhuma troca, já no caso médio e pior, a complexidade será O(n^2).
+
+Merge sort: Vai ter complexidade O(log n) em todos os casos, pois a divisão e unção do vetor vai acontecer não importa como é a forma inicial do vetor.
