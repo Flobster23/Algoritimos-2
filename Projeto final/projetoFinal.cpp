@@ -31,6 +31,25 @@ void imprimeInterface(){
     cout << endl;
 }
 
+void ordenaVetor(vector<cliente> *clientes){
+    vector<cliente> :: iterator p, q;
+    for(p = clientes->begin(); p != clientes->end(); p++){
+        vector<cliente> :: iterator menor = p;
+        for(q = p + 1; q != clientes->end(); q++){
+            if(q->nome < menor->nome){
+                menor = q;
+            }
+        }
+        if(menor != p){
+            swap(*p, *menor);
+        }
+    }
+
+    for (p = clientes->begin(); p != clientes->end(); p++) {
+        cout << p->nome << endl;
+    }
+}
+
 void montaVetor(vector<cliente> *clientes){
     ifstream arquivo("clientes.txt");
     if (!arquivo.is_open()) {
@@ -57,6 +76,8 @@ void montaVetor(vector<cliente> *clientes){
         clientes->push_back(novoCliente);
     }  
     arquivo.close();
+
+    ordenaVetor(clientes);
 }
 
 void sobrescreverArquivo(vector<cliente> *clientes, int num){
@@ -126,8 +147,23 @@ void adicionarClientes(vector<cliente> *clientes) {
     montaVetor(clientes);
 }
 
-string procurarCliente(string nome){
-    
+int procurarCliente(vector<cliente> *clientes, string nome, vector<cliente> :: iterator inicio, vector<cliente> :: iterator fim){
+    vector<cliente> :: iterator meio;
+    meio = inicio + (fim - inicio) / 2;
+
+    if(inicio > fim){
+        return -1;
+    }
+
+    if(meio->nome == nome){
+        return(distance(clientes->begin(), meio));
+    }
+
+    if(meio->nome < nome){
+        return procurarCliente(clientes, nome, meio + 1, fim);
+    }
+
+    return procurarCliente(clientes, nome, inicio, meio - 1);
 }
 
 void registrarVenda(vector<cliente> *clientes){
@@ -135,8 +171,9 @@ void registrarVenda(vector<cliente> *clientes){
     string nome;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, nome);
+    int res = procurarCliente(clientes, nome, clientes->begin(), clientes->end());
 
-    procurarCliente(nome);
+    
 }
 
 int main(){
