@@ -27,7 +27,8 @@ void imprimeInterface(){
     cout << "2. Registrar uma venda" <<  endl;
     cout << "3. Visualizar dados de um cliente" << endl;
     cout << "4. Visualizar dados de todos os clientes" << endl;
-    cout << "5. Encerrar o programa" << endl;
+    cout << "5. Remover um cliente do banco de dados" << endl;
+    cout << "6. Encerrar o programa" << endl;
     cout << endl;
 }
 
@@ -67,7 +68,8 @@ void montaVetor(vector<cliente> *clientes){
         string nomeLido;
         int qtdPalhas;
         bool serSocio;
-        arquivo >> nomeLido;
+        arquivo.ignore(numeric_limits<streamsize>::max(), '\n');
+        getline(arquivo, nomeLido);
         arquivo >> qtdPalhas;
         arquivo >> serSocio;
         novoCliente.nome = nomeLido;
@@ -173,7 +175,76 @@ void registrarVenda(vector<cliente> *clientes){
     getline(cin, nome);
     int res = procurarCliente(clientes, nome, clientes->begin(), clientes->end());
 
-    
+    if(res == -1){
+        cout << "O cliente nao esta registrado no banco de dados." << endl;
+        return;
+    }
+
+    cout << "Quantas palhas " << (*clientes)[res].nome << " comprou?" << endl;
+    int qtdPalhas;
+    cin >> qtdPalhas;
+
+    (*clientes)[res].fidelidade += qtdPalhas;
+
+    if((*clientes)[res].fidelidade >= 10){
+        (*clientes)[res].fidelidade -= 10;
+        qtdPalhas--;
+        cout << (*clientes)[res].nome << " completou o cartao de fidelidade e ganhou uma palha de graca!" << endl;
+    }
+
+    if(qtdPalhas == 0){
+        cout << "Nao vai precisar pagar nada hoje." << endl;
+        return;
+    }
+
+    int totalCompra;
+
+    if((*clientes)[res].socio){
+        totalCompra = qtdPalhas * 4;
+    }else{
+        totalCompra = qtdPalhas * 5;
+    }
+
+    cout << "Total da compra: R$ " << totalCompra << ",00" << endl;
+
+    sobrescreverArquivo(clientes, clientes->size() * 3);
+}
+
+void acessarDadosIndividual(vector<cliente> *clientes){
+    cout << "Digite o nome do cliente:" << endl;
+    string nome;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, nome);
+    int res = procurarCliente(clientes, nome, clientes->begin(), clientes->end());
+
+    if(res == -1){
+        cout << "O cliente nao esta registrado no banco de dados." << endl;
+        return;
+    }
+
+    cout << "Nome: " << (*clientes)[res].nome << endl;
+    cout << "Fidelidade: " << (*clientes)[res].fidelidade << " palhas italianas" << endl;
+    if((*clientes)[res].fidelidade){
+        cout << (*clientes)[res].nome << " eh socio da Pandemia" << endl;
+    }else{
+        cout << (*clientes)[res].nome << " nao eh socio da Pandemia" << endl;
+    }
+}
+
+void acessarDadosGeral(vector<cliente> *clientes){
+    cout << endl << "Total de clientes: " << clientes->size() << endl;
+    vector<cliente> :: iterator p;
+
+    for(p = clientes->begin(); p != clientes->end(); p++){
+        cout << "Nome: " << p->nome << endl;
+        cout << "Fidelidade: " << p->fidelidade << " palhas italianas" << endl;
+        if(p->fidelidade){
+            cout << p->nome << " eh socio da Pandemia" << endl;
+        }else{
+            cout << p->nome << " nao eh socio da Pandemia" << endl;
+        }
+        cout << endl;
+    }
 }
 
 int main(){
@@ -188,15 +259,20 @@ int main(){
         
         cin >> escolha;
 
-        if(escolha == 1){
+        if(escolha == 1)
             adicionarClientes(clientes);
-        }
 
-        if(escolha == 2){
+        if(escolha == 2)
             registrarVenda(clientes);
-        }
 
-    }while(escolha != 5);
+        if(escolha == 3)
+            acessarDadosIndividual(clientes);
+
+        if(escolha == 4)
+            acessarDadosGeral(clientes);
+
+
+    }while(escolha != 6);
 
     delete clientes;
     
