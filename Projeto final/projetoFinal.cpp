@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <limits>
+#include <assert.h>
 
 using namespace std;
 
@@ -44,10 +45,6 @@ void ordenaVetor(vector<cliente> *clientes){
         if(menor != p){
             swap(*p, *menor);
         }
-    }
-
-    for (p = clientes->begin(); p != clientes->end(); p++) {
-        cout << p->nome << endl;
     }
 }
 
@@ -106,7 +103,13 @@ void adicionarClientes(vector<cliente> *clientes) {
     vector<cliente> :: iterator p;
     cout << "Quantos clientes voce quer adicionar?" << endl;
     cin >> qtd;
-
+    if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Entrada invalida." << endl;
+            return;
+    }
+    
     num = (clientes->size() * 3) + (3 * qtd);
 
     sobrescreverArquivo(clientes, num);
@@ -173,6 +176,7 @@ void registrarVenda(vector<cliente> *clientes){
     string nome;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, nome);
+
     int res = procurarCliente(clientes, nome, clientes->begin(), clientes->end());
 
     if(res == -1){
@@ -247,6 +251,24 @@ void acessarDadosGeral(vector<cliente> *clientes){
     }
 }
 
+void removerCliente(vector <cliente> *clientes){
+    cout << "Digite o nome do cliente:" << endl;
+    string nome;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, nome);
+    int res = procurarCliente(clientes, nome, clientes->begin(), clientes->end());
+
+    if(res == -1){
+        cout << "O cliente nao esta registrado no banco de dados." << endl;
+        return;
+    }
+
+    clientes->erase(clientes->begin() + res);
+    sobrescreverArquivo(clientes, clientes->size() * 3);
+    cout << "Cliente removido com sucesso." << endl;
+
+}
+
 int main(){
     int escolha;
     vector<cliente> *clientes = new vector<cliente>;
@@ -258,6 +280,14 @@ int main(){
         imprimeInterface();
         
         cin >> escolha;
+
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Entrada invalida." << endl;
+        }else if(escolha < 1 || escolha > 6){
+            cout << "Entrada invalida." << endl;
+        }
 
         if(escolha == 1)
             adicionarClientes(clientes);
@@ -271,6 +301,8 @@ int main(){
         if(escolha == 4)
             acessarDadosGeral(clientes);
 
+        if(escolha == 5)
+            removerCliente(clientes);
 
     }while(escolha != 6);
 
