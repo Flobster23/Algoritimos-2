@@ -3,7 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <limits>
-#include <assert.h>
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -98,6 +99,25 @@ void sobrescreverArquivo(vector<cliente> *clientes, int num){
     sobrescrever.close();
 }
 
+int procurarCliente(vector<cliente> *clientes, string nome, vector<cliente> :: iterator inicio, vector<cliente> :: iterator fim){
+    vector<cliente> :: iterator meio;
+    meio = inicio + (fim - inicio) / 2;
+
+    if(inicio > fim){
+        return -1;
+    }
+
+    if(meio->nome == nome){
+        return(distance(clientes->begin(), meio));
+    }
+
+    if(meio->nome < nome){
+        return procurarCliente(clientes, nome, meio + 1, fim);
+    }
+
+    return procurarCliente(clientes, nome, inicio, meio - 1);
+}
+
 void adicionarClientes(vector<cliente> *clientes) {
     int qtd, num;
     vector<cliente> :: iterator p;
@@ -128,6 +148,9 @@ void adicionarClientes(vector<cliente> *clientes) {
         cout << "Digite o nome do cliente:" << endl;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         getline(cin, nome);
+        if(nome[0] > 96 && nome[0] < 123){
+            nome[0] = nome[0] - 32;
+        }
 
         cout << nome << " eh socio da pandemia? (S ou N)" << endl;
         cin >> escolha;
@@ -150,25 +173,6 @@ void adicionarClientes(vector<cliente> *clientes) {
     escrever.close();
 
     montaVetor(clientes);
-}
-
-int procurarCliente(vector<cliente> *clientes, string nome, vector<cliente> :: iterator inicio, vector<cliente> :: iterator fim){
-    vector<cliente> :: iterator meio;
-    meio = inicio + (fim - inicio) / 2;
-
-    if(inicio > fim){
-        return -1;
-    }
-
-    if(meio->nome == nome){
-        return(distance(clientes->begin(), meio));
-    }
-
-    if(meio->nome < nome){
-        return procurarCliente(clientes, nome, meio + 1, fim);
-    }
-
-    return procurarCliente(clientes, nome, inicio, meio - 1);
 }
 
 void registrarVenda(vector<cliente> *clientes){
